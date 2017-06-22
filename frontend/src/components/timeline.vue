@@ -3,8 +3,7 @@
     <h1>{{msg}}</h1>
     <ul>
            <li v-for="tweet in tweets">
-
-                {{ tweet }}
+                {{ tweet.auteur}} : {{ tweet.contenu}}
            </li>
     </ul>
 
@@ -13,11 +12,16 @@
 </template>
 
 <script>
+var tweet1 = {auteur: 'one punch', contenu: 'blabla bla'}
+var tweet2 = {auteur: 'Pauloooo', contenu: 'blobloblo'}
+var tweet3 = {auteur: 'Oliv', contenu: 'bliblibli'}
+
+
 export default {
   name: 'timeline',
   data () {
     return {
-      tweets: ['tweet 1', 'tweet 2', 'tweet 3']
+      tweets: [tweet1, tweet2, tweet3]
     }
   }
 
