@@ -14,5 +14,18 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+li.button {
+ display: inline-block;
+}
+
+a {
+ color: #42b983;
+}
+
+span.handle {
+ color: gray;
+}
+
 </style>
 

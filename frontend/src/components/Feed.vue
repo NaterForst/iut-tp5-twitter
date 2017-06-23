@@ -30,10 +30,16 @@
     margin: 0 10px;
   }
 
-  li.tweet:first-child {
-   border-top-width: 1px;
-  }
+li.tweet {
+ border-style: solid;
+ border-width: 0 1px 1px 1px;
+ border-color: gray;
+ width: 500px;
+ margin: auto;
+}
 
-
+li.tweet:first-child {
+ border-top-width: 1px;
+}
 
 </style>
