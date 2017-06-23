@@ -1,42 +1,42 @@
 <template>
-  <div class ="tweet">
-    <strong>
-     {{tweet.auteur.prenom}} {{tweet.auteur.nom}}
-    </strong>
-    <span>
-        @
-          {{tweet.auteur.handle}}
-    </span>
-     : {{tweet.contenu}}
-
-
-
-
+  <div class="tweet">
+    <div>
+      <strong>{{ tweet.auteur.prenom }} {{ tweet.auteur.nom }}</strong> <span class="handle">@{{ tweet.auteur.handle }}</span>
+    </div>
+    <div>
+      {{ tweet.contenu }}
+    </div>
+    <div>
+      <ul>
+        <li><icon name="reply"/></li>
+        <li><icon name="retweet"/></li>
+        <li><icon name="heart"/></li>
+        <li><icon name="envelope"/></li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-
-  export default {
-    name: 'tweet',
-    props: ['tweet']
-  }
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
+export default {
+  components: {Icon},
+  name: 'tweet',
+  props: ['tweet']
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  li {
+   display: inline-block;
+  }
 
-li.button {
- display: inline-block;
-}
+  a {
+   color: #42b983;
+  }
 
-a {
- color: #42b983;
-}
-
-span.handle {
- color: gray;
-}
-
+  span.handle {
+   color: gray;
+  }
 </style>
-
