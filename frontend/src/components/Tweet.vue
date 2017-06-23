@@ -8,8 +8,8 @@
     </div>
     <div>
       <ul>
-        <li><icon class ="button" name="reply"/></li>
-        <li><icon class ="button" name="retweet"/></li>
+        <li><icon class="button" name="reply"/></li>
+        <li><span> {{tweet.retweeters.length}} </span><icon class ="button" name="retweet"/></li>
         <li><icon class ="button" name="heart"/></li>
         <li><icon class ="button" name="envelope"/></li>
       </ul>
@@ -40,7 +40,8 @@ export default {
 </script>
 
 <style scoped>
-  li.button{
+
+  li{
    display: inline-block;
   }
 
