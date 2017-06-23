@@ -8,10 +8,10 @@
     </div>
     <div>
       <ul>
-        <li><icon name="reply"/></li>
-        <li><icon name="retweet"/></li>
-        <li><icon name="heart"/></li>
-        <li><icon name="envelope"/></li>
+        <li><icon class ="button" name="reply"/></li>
+        <li><icon class ="button" name="retweet"/></li>
+        <li><icon class ="button" name="heart"/></li>
+        <li><icon class ="button" name="envelope"/></li>
       </ul>
     </div>
   </div>
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style scoped>
-  li {
+  li.button{
    display: inline-block;
   }
 
