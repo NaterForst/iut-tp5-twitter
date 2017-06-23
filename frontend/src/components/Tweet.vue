@@ -9,7 +9,12 @@
     <div>
       <ul>
         <li><icon class="button" name="reply"/></li>
-        <li><span> {{tweet.retweeters.length}} </span><icon class ="button" name="retweet"/></li>
+        <li>
+          <a @click="retweet(tweet.id)">
+            <span> {{tweet.retweeters.length}} </span>
+            <icon class ="button" name="retweet"/>
+          </a>
+        </li>
         <li><icon class ="button" name="heart"/></li>
         <li><icon class ="button" name="envelope"/></li>
       </ul>
@@ -18,25 +23,31 @@
 </template>
 
 <script>
+
 import 'vue-awesome/icons'
-import moment from 'moment'
 import Icon from 'vue-awesome/components/Icon'
+import moment from 'moment'
+
 export default {
-  components: {Icon},
+  created () {
+    moment.locale('fr')
+  },
   name: 'tweet',
   props: ['tweet'],
+  components: {Icon},
   methods: {
     moment: function (date) {
       return moment(date)
+    },
+    retweet: function (id) {
+      var data = new FormData()
+      data.append('utilisateur', 'olivvvvv')
+      data.append('tweet', id)
+      this.$http.post('http://localhost:8080/retweet', data, {responseType: 'text'}).then(response => {
+      })
     }
-  },
-
-  created () {
-    moment.locale('fr')
   }
 }
-
-</script>
 </script>
 
 <style scoped>
