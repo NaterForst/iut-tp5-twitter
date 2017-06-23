@@ -1,6 +1,17 @@
 <template>
-  <div>
-    {{tweet.auteur}} : {{tweet.contenu}}
+  <div class ="tweet">
+    <strong>
+     {{tweet.auteur.prenom}} {{tweet.auteur.nom}}
+    </strong>
+    <span>
+        @
+          {{tweet.auteur.handle}}
+    </span>
+     : {{tweet.contenu}}
+
+
+
+
   </div>
 </template>
 
