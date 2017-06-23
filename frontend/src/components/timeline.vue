@@ -1,51 +1,60 @@
 <template>
   <div class="timeline">
-    <h1>{{msg}}</h1>
     <ul>
-           <li v-for="tweet in tweets">
-                <tweet :tweet="tweet/>"
-           </li>
+      <li v-for="tweet in tweets">
+        <tweet :tweet="tweet"/>
+      </li>
     </ul>
-
-
-   </div>
+  </div>
 </template>
 
 <script>
-var tweet1 = {auteur: 'one punch', contenu: 'blabla bla'}
-var tweet2 = {auteur: 'Pauloooo', contenu: 'blobloblo'}
-var tweet3 = {auteur: 'Oliv', contenu: 'bliblibli'}
 
-import tweet from './Tweet'
+  import Tweet from './Tweet'
+  
 
-export default {
-  name: 'timeline',
-  data () {
-    return {
-      tweets: [tweet1, tweet2, tweet3]
+  export default {
+    name: 'timeline',
+    data () {
+      return {
+        tweets: [{auteur: 'proutt', contenu: 'yihiii'}, {auteur: 'dsdksds', contenu: 'djsdjsds'}, {auteur: 'dsjdhsjdhs', contenu: 'dysgdysgd'}]
+      }
+    },
+    components: {Tweet},
+    methods: {
+      fetchTweets: function () {
+        this.$http.get('http://localhost:8080/list').then(response => {
+          // get body data
+          this.tweets = response.body
+          console.log(response.body)
+        }, response => {
+          // error callback
+        })
+      }
+    },
+    created () {
+      this.fetchTweets()
     }
-  },
-  components: {Tweet}
-}
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
+  h1, h2 {
+    font-weight: normal;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
-li {
-  display: block;
-  margin: 0 10px;
-}
+  li {
+    display: block;
+    margin: 0 10px;
+  }
 
-a {
-  color: #42b983;
-}
+  a {
+    color: #42b983;
+  }
 </style>
